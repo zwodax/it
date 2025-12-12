@@ -4,22 +4,22 @@ import { ArrowRight, Mail } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-32 bg-background">
+    <section className="py-16 sm:py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
               Готовы начать подготовку?
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-2">
               Присоединяйтесь к нашим курсам и начните путь к успешной карьере
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="p-10 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all">
-              <h3 className="text-3xl font-semibold mb-4">System Design</h3>
-              <p className="text-muted-foreground mb-8 text-lg">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12 md:mb-16">
+            <div className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-primary/50 transition-all">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4">System Design</h3>
+              <p className="text-muted-foreground mb-6 sm:mb-8 text-base sm:text-lg">
                 Начните обучение прямо сейчас. Полный доступ ко всем материалам курса.
               </p>
               <Button size="lg" className="w-full rounded-full">
@@ -28,18 +28,18 @@ const CTASection = () => {
               </Button>
             </div>
 
-            <div className="p-10 rounded-3xl bg-muted border border-border hover:border-primary/50 transition-all">
-              <h3 className="text-3xl font-semibold mb-4">Coding Interview</h3>
-              <p className="text-muted-foreground mb-8 text-lg">
+            <div className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-muted border border-border hover:border-primary/50 transition-all">
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-3 sm:mb-4">Coding Interview</h3>
+              <p className="text-muted-foreground mb-6 sm:mb-8 text-base sm:text-lg">
                 Присоединитесь к списку ожидания и получите специальное предложение.
               </p>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Input 
                   type="email" 
                   placeholder="Ваш email"
                   className="flex-1 rounded-full"
                 />
-                <Button size="lg" className="rounded-full">
+                <Button size="lg" className="rounded-full w-full sm:w-auto">
                   <Mail className="w-5 h-5" />
                 </Button>
               </div>
@@ -47,7 +47,7 @@ const CTASection = () => {
           </div>
 
           <div className="text-center">
-            <p className="text-muted-foreground mb-6">
+            <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
               Остались вопросы? Напишите нам
             </p>
             <Button variant="outline" size="lg" className="rounded-full border-2">

@@ -106,37 +106,37 @@ const ProgramSection = () => {
   ];
 
   return (
-    <section id="about" className="py-32 bg-muted/50">
+    <section id="about" className="py-16 sm:py-24 md:py-32 bg-muted/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+        <div className="text-center mb-10 sm:mb-16 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Программа курса
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             System Design для облачных SaaS-систем
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {systemDesignModules.map((module, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-2xl px-6 data-[state=open]:border-primary/50"
+                className="bg-card border border-border rounded-xl sm:rounded-2xl px-4 sm:px-6 data-[state=open]:border-primary/50"
               >
-                <AccordionTrigger className="hover:no-underline py-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <AccordionTrigger className="hover:no-underline py-4 sm:py-6">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       {module.icon}
                     </div>
-                    <span className="text-lg font-semibold text-left">{module.title}</span>
+                    <span className="text-sm sm:text-base md:text-lg font-semibold text-left">{module.title}</span>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="pb-6">
-                  <ul className="ml-14 space-y-2">
+                <AccordionContent className="pb-4 sm:pb-6">
+                  <ul className="ml-11 sm:ml-14 space-y-1.5 sm:space-y-2">
                     {module.topics.map((topic, topicIndex) => (
-                      <li key={topicIndex} className="text-muted-foreground flex items-start gap-2">
+                      <li key={topicIndex} className="text-sm sm:text-base text-muted-foreground flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
                         {topic}
                       </li>
@@ -147,11 +147,11 @@ const ProgramSection = () => {
             ))}
           </Accordion>
 
-          <div className="mt-12 p-8 rounded-2xl bg-card border border-border text-center">
-            <p className="text-muted-foreground mb-2">
+          <div className="mt-8 sm:mt-12 p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-card border border-border text-center">
+            <p className="text-sm sm:text-base text-muted-foreground mb-2">
               <span className="font-semibold text-foreground">Coding Interview</span> — программа в разработке
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Присоединяйтесь к waitlist, чтобы узнать о запуске первыми
             </p>
           </div>
