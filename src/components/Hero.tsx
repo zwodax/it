@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import EnrollDialog from "./EnrollDialog";
 
 const Hero = () => {
   return (
@@ -21,9 +22,11 @@ const Hero = () => {
             Системный дизайн и алгоритмы. Разбор ключевых тем для успешного прохождения интервью.
           </p>
 
-          <Button size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto">
-            Начать обучение
-          </Button>
+          <EnrollDialog courseName="System Design">
+            <Button size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto">
+              Начать обучение
+            </Button>
+          </EnrollDialog>
 
           <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 max-w-3xl mx-auto">
             <div className="text-center">

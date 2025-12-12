@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ArrowRight, Mail } from "lucide-react";
+import EnrollDialog from "./EnrollDialog";
 
 const CTASection = () => {
   return (
@@ -22,10 +22,12 @@ const CTASection = () => {
               <p className="text-muted-foreground mb-6 sm:mb-8 text-base sm:text-lg">
                 Начните обучение прямо сейчас. Полный доступ ко всем материалам курса.
               </p>
-              <Button size="lg" className="w-full rounded-full">
-                Записаться на курс
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <EnrollDialog courseName="System Design">
+                <Button size="lg" className="w-full rounded-full">
+                  Записаться на курс
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </EnrollDialog>
             </div>
 
             <div className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-muted border border-border hover:border-primary/50 transition-all">
@@ -33,16 +35,12 @@ const CTASection = () => {
               <p className="text-muted-foreground mb-6 sm:mb-8 text-base sm:text-lg">
                 Присоединитесь к списку ожидания и получите специальное предложение.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Input 
-                  type="email" 
-                  placeholder="Ваш email"
-                  className="flex-1 rounded-full"
-                />
-                <Button size="lg" className="rounded-full w-full sm:w-auto">
-                  <Mail className="w-5 h-5" />
+              <EnrollDialog courseName="Coding Interview (waitlist)">
+                <Button size="lg" className="w-full rounded-full">
+                  <Mail className="mr-2 w-5 h-5" />
+                  Присоединиться к waitlist
                 </Button>
-              </div>
+              </EnrollDialog>
             </div>
           </div>
 
@@ -50,8 +48,10 @@ const CTASection = () => {
             <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
               Остались вопросы? Напишите нам
             </p>
-            <Button variant="outline" size="lg" className="rounded-full border-2">
-              Связаться с нами
+            <Button variant="outline" size="lg" className="rounded-full border-2" asChild>
+              <a href="mailto:info@sysdesign.online">
+                Связаться с нами
+              </a>
             </Button>
           </div>
         </div>
