@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Layers, Code, ArrowRight, Clock } from "lucide-react";
+import EnrollDialog from "./EnrollDialog";
 
 const CoursesSection = () => {
   return (
@@ -54,10 +55,12 @@ const CoursesSection = () => {
               </li>
             </ul>
             
-            <Button variant="outline" className="w-full rounded-full border-2" size="lg">
-              Присоединиться к waitlist
-              <Clock className="ml-2 w-5 h-5" />
-            </Button>
+            <EnrollDialog courseName="Coding Interview (waitlist)">
+              <Button variant="outline" className="w-full rounded-full border-2" size="lg">
+                Присоединиться к waitlist
+                <Clock className="ml-2 w-5 h-5" />
+              </Button>
+            </EnrollDialog>
           </div>
 
           {/* System Design Course */}
@@ -99,10 +102,12 @@ const CoursesSection = () => {
               </li>
             </ul>
             
-            <Button className="w-full rounded-full" size="lg">
-              Записаться на курс
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <EnrollDialog courseName="System Design">
+              <Button className="w-full rounded-full" size="lg">
+                Записаться на курс
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </EnrollDialog>
           </div>
         </div>
       </div>
