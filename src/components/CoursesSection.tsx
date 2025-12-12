@@ -55,7 +55,7 @@ const CoursesSection = () => {
               </li>
             </ul>
             
-            <EnrollDialog courseName="Coding Interview (waitlist)">
+            <EnrollDialog courseName="Coding Interview" isWaitlist>
               <Button variant="outline" className="w-full rounded-full border-2" size="lg">
                 Присоединиться к waitlist
                 <Clock className="ml-2 w-5 h-5" />

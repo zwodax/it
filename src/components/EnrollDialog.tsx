@@ -15,9 +15,10 @@ import { useToast } from "@/hooks/use-toast";
 interface EnrollDialogProps {
   children: React.ReactNode;
   courseName?: string;
+  isWaitlist?: boolean;
 }
 
-const EnrollDialog = ({ children, courseName = "курс" }: EnrollDialogProps) => {
+const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }: EnrollDialogProps) => {
   const [email, setEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
@@ -35,8 +36,11 @@ const EnrollDialog = ({ children, courseName = "курс" }: EnrollDialogProps) 
     }
 
     // Open mailto with the email
-    const subject = encodeURIComponent(`Заявка на ${courseName}`);
-    const body = encodeURIComponent(`Email для связи: ${email}\n\nПрошу записать меня на ${courseName}.`);
+    const subject = encodeURIComponent(isWaitlist ? `Waitlist: ${courseName}` : `Заявка на ${courseName}`);
+    const body = encodeURIComponent(isWaitlist 
+      ? `Email для связи: ${email}\n\nПрошу добавить меня в waitlist на курс ${courseName}.`
+      : `Email для связи: ${email}\n\nПрошу записать меня на ${courseName}.`
+    );
     window.location.href = `mailto:info@sysdesign.online?subject=${subject}&body=${body}`;
     
     toast({
@@ -55,9 +59,14 @@ const EnrollDialog = ({ children, courseName = "курс" }: EnrollDialogProps) 
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-xl sm:text-2xl">Записаться на {courseName}</DialogTitle>
+          <DialogTitle className="text-xl sm:text-2xl">
+            {isWaitlist ? `Записаться в waitlist на ${courseName}` : `Записаться на ${courseName}`}
+          </DialogTitle>
           <DialogDescription className="text-base">
-            Оставьте ваш email и мы свяжемся с вами для создания аккаунта и предоставления доступа к курсу.
+            {isWaitlist 
+              ? "Оставьте ваш email и мы сообщим вам, когда курс станет доступен для записи."
+              : "Оставьте ваш email и мы свяжемся с вами для создания аккаунта и предоставления доступа к курсу."
+            }
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
