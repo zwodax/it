@@ -75,8 +75,12 @@ const CoursesSection = () => {
             </div>
 
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">System Design</h3>
-            <p className="text-muted-foreground mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
+            <p className="text-muted-foreground mb-4 text-base sm:text-lg leading-relaxed">
               Проектирование высоконагруженных multi-tenant SaaS систем. Подготовка к интервью в крупнейшие IT-компании.
+            </p>
+            <p className="text-muted-foreground/80 mb-6 sm:mb-8 text-sm sm:text-base">
+              <Clock className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />
+              6–8 недель · в своём темпе
             </p>
 
             <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
