@@ -22,15 +22,15 @@ const VideoSection = () => {
             
             <TabsContent value="greeting">
               <Card className="overflow-hidden">
-                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative group cursor-pointer">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
-                  <div className="relative z-10 text-center">
-                    <div className="w-20 h-20 rounded-full bg-primary/90 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                      <Play className="w-10 h-10 text-primary-foreground ml-1" />
-                    </div>
-                    <h3 className="text-2xl font-semibold mb-2">Приветствие</h3>
-                    <p className="text-muted-foreground">Познакомьтесь с курсом и автором</p>
-                  </div>
+                <div className="aspect-video bg-secondary/20">
+                  <video 
+                    className="w-full h-full object-cover"
+                    controls
+                    preload="metadata"
+                  >
+                    <source src="https://sysdesign-course-videos.ams3.digitaloceanspaces.com/intro.mp4" type="video/mp4" />
+                    Ваш браузер не поддерживает воспроизведение видео.
+                  </video>
                 </div>
                 <div className="p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl font-semibold mb-2">О курсе System Design</h3>
