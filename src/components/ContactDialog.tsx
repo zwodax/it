@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
@@ -12,14 +13,14 @@ import {
 import { Mail, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-interface EnrollDialogProps {
+interface ContactDialogProps {
   children: React.ReactNode;
-  courseName?: string;
-  isWaitlist?: boolean;
 }
 
-const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }: EnrollDialogProps) => {
+const ContactDialog = ({ children }: ContactDialogProps) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -36,18 +37,27 @@ const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }:
       return;
     }
 
+    if (!message.trim()) {
+      toast({
+        title: "Ошибка",
+        description: "Пожалуйста, введите сообщение",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/send-enrollment', {
+      const response = await fetch('/api/send-contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userEmail: email,
-          courseName,
-          isWaitlist
+          email,
+          name,
+          message
         }),
       });
 
@@ -55,20 +65,22 @@ const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }:
 
       if (response.ok && result.success) {
         toast({
-          title: "Спасибо за заявку!",
-          description: "Мы отправили вам подтверждение на email и свяжемся с вами в ближайшее время.",
+          title: "Сообщение отправлено!",
+          description: "Мы получили ваше сообщение и ответим в ближайшее время.",
         });
         
         setEmail("");
+        setName("");
+        setMessage("");
         setIsOpen(false);
       } else {
-        throw new Error(result.error || 'Failed to send enrollment');
+        throw new Error(result.error || 'Failed to send message');
       }
     } catch (error) {
-      console.error('Enrollment error:', error);
+      console.error('Contact form error:', error);
       toast({
         title: "Ошибка отправки",
-        description: "Не удалось отправить заявку. Попробуйте еще раз или напишите нам напрямую на info@sysdesign.online",
+        description: "Не удалось отправить сообщение. Попробуйте еще раз или напишите нам в Telegram.",
         variant: "destructive",
       });
     } finally {
@@ -84,17 +96,21 @@ const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }:
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl sm:text-2xl">
-            {isWaitlist ? `Записаться в waitlist на ${courseName}` : `Записаться на ${courseName}`}
+            Связаться с нами
           </DialogTitle>
           <DialogDescription className="text-base">
-            {isWaitlist 
-              ? "Оставьте ваш email и мы сообщим вам, когда курс станет доступен для записи."
-              : "Оставьте ваш email и мы свяжемся с вами для создания аккаунта и предоставления доступа к курсу."
-            }
+            Есть вопросы о курсах или нужна помощь? Напишите нам, и мы обязательно ответим!
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          <div className="space-y-2">
+          <div className="space-y-4">
+            <Input
+              type="text"
+              placeholder="Ваше имя (необязательно)"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="rounded-lg"
+            />
             <Input
               type="email"
               placeholder="Ваш email"
@@ -103,9 +119,13 @@ const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }:
               className="rounded-lg"
               required
             />
-            <p className="text-xs text-muted-foreground">
-              После получения заявки мы создадим для вас аккаунт вручную и отправим данные для входа на указанный email.
-            </p>
+            <Textarea
+              placeholder="Ваше сообщение..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="rounded-lg min-h-[100px]"
+              required
+            />
           </div>
           <Button type="submit" className="w-full rounded-full" size="lg" disabled={isLoading}>
             {isLoading ? (
@@ -113,7 +133,7 @@ const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }:
             ) : (
               <Mail className="mr-2 w-5 h-5" />
             )}
-            {isLoading ? "Отправка..." : "Отправить заявку"}
+            {isLoading ? "Отправка..." : "Отправить сообщение"}
           </Button>
         </form>
       </DialogContent>
@@ -121,4 +141,4 @@ const EnrollDialog = ({ children, courseName = "курс", isWaitlist = false }:
   );
 };
 
-export default EnrollDialog;
+export default ContactDialog;

@@ -9,7 +9,39 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(), 
+    mode === "development" && componentTagger(),
+    // Custom plugin for API routes
+    {
+      name: 'api-routes',
+      configureServer(server) {
+        server.middlewares.use('/api/send-enrollment', async (req, res, next) => {
+          try {
+            const { handleEnrollment } = await import('./server/api.js');
+            await handleEnrollment(req, res);
+          } catch (error) {
+            console.error('API Error:', error);
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'Internal server error' }));
+          }
+        });
+
+        server.middlewares.use('/api/send-contact', async (req, res, next) => {
+          try {
+            const { handleContact } = await import('./server/api.js');
+            await handleContact(req, res);
+          } catch (error) {
+            console.error('API Error:', error);
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'Internal server error' }));
+          }
+        });
+      }
+    }
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
