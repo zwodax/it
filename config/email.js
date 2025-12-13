@@ -1,7 +1,7 @@
 // Email configuration
 export const emailConfig = {
-  // Resend API token
-  resendApiKey: 're_PtEKbeTu_BCpXJFfd4Hbi2uaSfArFq3Rf',
+  // Resend API token - use environment variable or fallback to hardcoded
+  resendApiKey: process.env.RESEND_API_KEY || 're_PtEKbeTu_BCpXJFfd4Hbi2uaSfArFq3Rf',
   
   // Email addresses
   fromEmail: 'SysDesign.online <noreply@mail.sysdesign.online>',

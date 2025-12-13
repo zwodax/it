@@ -8,6 +8,12 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: [
+      'sysdesign.online',
+      'www.sysdesign.online',
+      'localhost',
+      '138.197.229.55'
+    ],
   },
   plugins: [
     react(), 
