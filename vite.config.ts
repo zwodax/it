@@ -12,7 +12,8 @@ export default defineConfig(({ mode }) => ({
       'sysdesign.online',
       'www.sysdesign.online',
       'localhost',
-      '138.197.229.55'
+      '146.190.26.79',
+      '143.198.251.241'
     ],
   },
   plugins: [
