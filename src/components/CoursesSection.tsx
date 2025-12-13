@@ -78,10 +78,15 @@ const CoursesSection = () => {
             <p className="text-muted-foreground mb-4 text-base sm:text-lg leading-relaxed">
               Проектирование высоконагруженных multi-tenant SaaS систем. Подготовка к интервью в крупнейшие IT-компании.
             </p>
-            <p className="text-muted-foreground/80 mb-6 sm:mb-8 text-sm sm:text-base">
-              <Clock className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />
-              6–8 недель · в своём темпе
-            </p>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-muted-foreground/80 mb-6 sm:mb-8 text-sm sm:text-base">
+              <span>
+                <Clock className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />
+                6–8 недель · в своём темпе
+              </span>
+              <span className="text-muted-foreground/60">
+                ✦ AI-enhanced контент
+              </span>
+            </div>
 
             <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
               <li className="flex items-start gap-2 sm:gap-3">
