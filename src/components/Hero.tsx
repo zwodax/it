@@ -31,10 +31,10 @@ const Hero = () => {
           <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-1 sm:mb-2">
-                7
+                50+
               </div>
               <div className="text-xs sm:text-sm md:text-base text-primary-foreground/80">
-                модулей, >50 лекций
+                лекций в 7 модулях и разборах типовых задач
               </div>
             </div>
             <div className="text-center">
@@ -42,7 +42,7 @@ const Hero = () => {
                 2
               </div>
               <div className="text-xs sm:text-sm md:text-base text-primary-foreground/80">
-                месяца - средний срок подготовки
+                месяца - средний срок подготовки, свободный график
               </div>
             </div>
             <div className="text-center">
