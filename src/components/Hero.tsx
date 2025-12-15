@@ -31,18 +31,18 @@ const Hero = () => {
           <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-1 sm:mb-2">
-                100+
+                7
               </div>
               <div className="text-xs sm:text-sm md:text-base text-primary-foreground/80">
-                Задач и кейсов
+                модулей, >50 лекций
               </div>
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-1 sm:mb-2">
-                95%
+                2
               </div>
               <div className="text-xs sm:text-sm md:text-base text-primary-foreground/80">
-                Успешных собеседований
+                месяца - средний срок подготовки
               </div>
             </div>
             <div className="text-center">
