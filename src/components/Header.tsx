@@ -5,6 +5,14 @@ import { useState } from "react";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const scrollToCTA = () => {
+    const ctaSection = document.getElementById('cta-section');
+    if (ctaSection) {
+      ctaSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
       <nav className="container mx-auto px-6 py-5">
@@ -21,7 +29,7 @@ const Header = () => {
             <a href="#about" className="text-sm text-foreground hover:text-primary transition-colors">
               О нас
             </a>
-            <Button size="lg" className="rounded-full">Записаться</Button>
+            <Button size="lg" className="rounded-full" onClick={scrollToCTA}>Записаться</Button>
           </div>
 
           <button 
@@ -43,7 +51,7 @@ const Header = () => {
             <a href="#about" className="text-sm text-foreground hover:text-primary transition-colors">
               О нас
             </a>
-            <Button className="w-full rounded-full">Записаться</Button>
+            <Button className="w-full rounded-full" onClick={scrollToCTA}>Записаться</Button>
           </div>
         )}
       </nav>
