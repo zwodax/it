@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button";
-import EnrollDialog from "./EnrollDialog";
 
 const Hero = () => {
+  const scrollToCTA = () => {
+    const ctaSection = document.getElementById('cta-section');
+    if (ctaSection) {
+      ctaSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 px-4 bg-gradient-to-br from-primary via-primary/95 to-primary/80 overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:2rem_2rem] sm:bg-[size:4rem_4rem]" />
@@ -22,11 +28,13 @@ const Hero = () => {
             Системный дизайн и алгоритмы. Разбор ключевых тем для успешного прохождения интервью.
           </p>
 
-          <EnrollDialog courseName="System Design">
-            <Button size="lg" className="rounded-full bg-background text-primary hover:bg-background/90 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto">
-              Начать обучение
-            </Button>
-          </EnrollDialog>
+          <Button 
+            size="lg" 
+            className="rounded-full bg-background text-primary hover:bg-background/90 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto"
+            onClick={scrollToCTA}
+          >
+            Записаться
+          </Button>
 
           <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 max-w-3xl mx-auto">
             <div className="text-center">

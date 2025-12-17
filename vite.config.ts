@@ -22,28 +22,30 @@ export default defineConfig(({ mode }) => ({
     // Custom plugin for API routes
     {
       name: 'api-routes',
-      configureServer(server) {
-        server.middlewares.use('/api/send-enrollment', async (req, res, next) => {
+      configureServer(server: { middlewares: { use: (path: string, handler: (req: unknown, res: unknown, next: unknown) => void) => void } }) {
+        server.middlewares.use('/api/send-enrollment', async (req: unknown, res: unknown, _next: unknown) => {
           try {
+            // @ts-ignore - server module
             const { handleEnrollment } = await import('./server/api.js');
             await handleEnrollment(req, res);
           } catch (error) {
             console.error('API Error:', error);
-            res.statusCode = 500;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({ error: 'Internal server error' }));
+            (res as { statusCode: number; setHeader: (k: string, v: string) => void; end: (s: string) => void }).statusCode = 500;
+            (res as { setHeader: (k: string, v: string) => void }).setHeader('Content-Type', 'application/json');
+            (res as { end: (s: string) => void }).end(JSON.stringify({ error: 'Internal server error' }));
           }
         });
 
-        server.middlewares.use('/api/send-contact', async (req, res, next) => {
+        server.middlewares.use('/api/send-contact', async (req: unknown, res: unknown, _next: unknown) => {
           try {
+            // @ts-ignore - server module
             const { handleContact } = await import('./server/api.js');
             await handleContact(req, res);
           } catch (error) {
             console.error('API Error:', error);
-            res.statusCode = 500;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({ error: 'Internal server error' }));
+            (res as { statusCode: number; setHeader: (k: string, v: string) => void; end: (s: string) => void }).statusCode = 500;
+            (res as { setHeader: (k: string, v: string) => void }).setHeader('Content-Type', 'application/json');
+            (res as { end: (s: string) => void }).end(JSON.stringify({ error: 'Internal server error' }));
           }
         });
       }

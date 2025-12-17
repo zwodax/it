@@ -92,8 +92,8 @@ export const sendEnrollmentEmail = async ({ userEmail, courseName, isWaitlist }:
 
     return { 
       success: true, 
-      adminEmailId: adminEmailResult.id,
-      userEmailId: userEmailResult.id 
+      adminEmailId: adminEmailResult.data?.id,
+      userEmailId: userEmailResult.data?.id 
     };
   } catch (error) {
     console.error('Error sending email:', error);
