@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Layers, Code, ArrowRight, Clock, Sparkles } from "lucide-react";
 import EnrollDialog from "./EnrollDialog";
-
 const CoursesSection = () => {
-  return (
-    <section id="courses" className="py-16 sm:py-24 md:py-32 bg-background">
+  return <section id="courses" className="py-16 sm:py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 sm:mb-16 md:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
@@ -134,24 +132,17 @@ const CoursesSection = () => {
                 Часть курса доступна бесплатно после регистрации. Оцените качество, затем оплатите.
               </p>
               <EnrollDialog courseName="System Design (бесплатный доступ)">
-                <Button variant="outline" size="sm" className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  Начать бесплатно
-                  <ArrowRight className="ml-1.5 w-4 h-4" />
-                </Button>
+                
               </EnrollDialog>
             </div>
             
             <EnrollDialog courseName="System Design">
-              <Button className="w-full rounded-full" size="lg">
-                Записаться на курс
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <Button className="w-full rounded-full" size="lg">Начать бесплатно  <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </EnrollDialog>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CoursesSection;
