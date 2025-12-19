@@ -124,17 +124,21 @@ const CoursesSection = () => {
               </li>
             </ul>
 
-            {/* Test drive info */}
-            <div className="bg-muted/50 p-4 rounded-xl mb-6 border border-border">
-              <div className="flex items-start gap-3">
-                <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-sm mb-1">Попробуйте бесплатно</p>
-                  <p className="text-sm text-muted-foreground">
-                    Часть курса доступна бесплатно после регистрации. Оцените качество, затем оплатите.
-                  </p>
-                </div>
+            {/* Test drive CTA */}
+            <div className="bg-primary/10 p-5 rounded-xl mb-6 border-2 border-primary/30">
+              <div className="flex items-center gap-2 mb-2">
+                <Sparkles className="w-5 h-5 text-primary" />
+                <p className="font-bold text-lg text-primary">Попробуйте бесплатно!</p>
               </div>
+              <p className="text-sm text-foreground/80 mb-3">
+                Часть курса доступна бесплатно после регистрации. Оцените качество, затем оплатите.
+              </p>
+              <EnrollDialog courseName="System Design (бесплатный доступ)">
+                <Button variant="outline" size="sm" className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                  Начать бесплатно
+                  <ArrowRight className="ml-1.5 w-4 h-4" />
+                </Button>
+              </EnrollDialog>
             </div>
             
             <EnrollDialog courseName="System Design">
