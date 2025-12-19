@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Layers, Code, ArrowRight, Clock } from "lucide-react";
+import { CheckCircle2, Layers, Code, ArrowRight, Clock, Sparkles } from "lucide-react";
 import EnrollDialog from "./EnrollDialog";
 
 const CoursesSection = () => {
@@ -63,14 +63,15 @@ const CoursesSection = () => {
             </EnrollDialog>
           </div>
 
-          {/* System Design Course */}
-          <div className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-primary/50 transition-all">
+          {/* System Design Course with Pricing */}
+          <div id="pricing" className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-card border-2 border-primary shadow-xl transition-all">
             <div className="flex items-start justify-between mb-6 sm:mb-8">
               <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-primary/10">
                 <Layers className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
               </div>
-              <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-semibold">
-                Доступен
+              <span className="inline-flex items-center gap-1 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary text-primary-foreground text-xs sm:text-sm font-semibold">
+                <Sparkles className="w-4 h-4" />
+                Акция
               </span>
             </div>
 
@@ -78,7 +79,19 @@ const CoursesSection = () => {
             <p className="text-muted-foreground mb-4 text-base sm:text-lg leading-relaxed">
               Проектирование высоконагруженных multi-tenant SaaS систем. Подготовка к интервью в крупнейшие IT-компании.
             </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-muted-foreground/80 mb-6 sm:mb-8 text-sm sm:text-base">
+            
+            {/* Price */}
+            <div className="mb-6">
+              <div className="flex items-baseline gap-3">
+                <span className="text-3xl sm:text-4xl font-bold text-primary">15 000 ₽</span>
+                <span className="text-lg sm:text-xl text-muted-foreground line-through">25 000 ₽</span>
+              </div>
+              <p className="text-sm text-primary font-medium mt-1">
+                Экономия 10 000 ₽
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-muted-foreground/80 mb-6 text-sm sm:text-base">
               <span>
                 <Clock className="w-4 h-4 inline-block mr-1.5 -mt-0.5" />
                 6–8 недель · в своём темпе
@@ -88,7 +101,7 @@ const CoursesSection = () => {
               </span>
             </div>
 
-            <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
+            <ul className="space-y-3 sm:space-y-4 mb-6">
               <li className="flex items-start gap-2 sm:gap-3">
                 <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-sm sm:text-base">Cloud-native архитектура и микросервисы</span>
@@ -110,6 +123,19 @@ const CoursesSection = () => {
                 <span className="text-sm sm:text-base">Real-world кейсы из практики</span>
               </li>
             </ul>
+
+            {/* Test drive info */}
+            <div className="bg-muted/50 p-4 rounded-xl mb-6 border border-border">
+              <div className="flex items-start gap-3">
+                <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-sm mb-1">Попробуйте бесплатно</p>
+                  <p className="text-sm text-muted-foreground">
+                    Часть курса доступна бесплатно после регистрации. Оцените качество, затем оплатите.
+                  </p>
+                </div>
+              </div>
+            </div>
             
             <EnrollDialog courseName="System Design">
               <Button className="w-full rounded-full" size="lg">
