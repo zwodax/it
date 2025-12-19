@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
-  const scrollToCTA = () => {
-    const ctaSection = document.getElementById('cta-section');
-    if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -31,7 +31,7 @@ const Hero = () => {
           <Button 
             size="lg" 
             className="rounded-full bg-background text-primary hover:bg-background/90 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto"
-            onClick={scrollToCTA}
+            onClick={scrollToPricing}
           >
             Записаться
           </Button>
