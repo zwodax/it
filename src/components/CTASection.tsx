@@ -1,9 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import EnrollDialog from "./EnrollDialog";
 import ContactDialog from "./ContactDialog";
 
 const CTASection = () => {
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="cta-section" className="py-16 sm:py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4">
@@ -23,12 +30,9 @@ const CTASection = () => {
               <p className="text-muted-foreground mb-6 sm:mb-8 text-base sm:text-lg">
                 Начните обучение прямо сейчас. Полный доступ ко всем материалам курса.
               </p>
-              <EnrollDialog courseName="System Design">
-                <Button size="lg" className="w-full rounded-full">
-                  Записаться на курс
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </EnrollDialog>
+              <Button size="lg" className="w-full rounded-full" onClick={scrollToPricing}>
+                Узнать стоимость
+              </Button>
             </div>
 
             <div className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-muted border border-border hover:border-primary/50 transition-all">

@@ -5,10 +5,10 @@ import { useState } from "react";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const scrollToCTA = () => {
-    const ctaSection = document.getElementById('cta-section');
-    if (ctaSection) {
-      ctaSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
   };
@@ -29,7 +29,7 @@ const Header = () => {
             <a href="#about" className="text-sm text-foreground hover:text-primary transition-colors">
               О нас
             </a>
-            <Button size="lg" className="rounded-full" onClick={scrollToCTA}>Записаться</Button>
+            <Button size="lg" className="rounded-full" onClick={scrollToPricing}>Записаться</Button>
           </div>
 
           <button 
@@ -51,7 +51,7 @@ const Header = () => {
             <a href="#about" className="text-sm text-foreground hover:text-primary transition-colors">
               О нас
             </a>
-            <Button className="w-full rounded-full" onClick={scrollToCTA}>Записаться</Button>
+            <Button className="w-full rounded-full" onClick={scrollToPricing}>Записаться</Button>
           </div>
         )}
       </nav>
